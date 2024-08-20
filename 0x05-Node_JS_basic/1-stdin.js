@@ -9,8 +9,6 @@ function stdIn() {
   rl.question('Welcome to Holberton School, what is your name? ', (name) => {
     console.log(`Your name is: ${name}`);
     rl.close();
-
-    process.exit(0);
   });
 }
 
