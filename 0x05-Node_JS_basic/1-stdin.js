@@ -1,24 +1,16 @@
-const readline = require('readline');
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-// Create the interface to read input from stdin and write to stdout
-const interFace = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-// Function to handle user input and display the message
-function askName() {
-  interFace.question('Welcome to Holberton School, what is your name?\n', (name) => {
-    console.log(`Your name is: ${name}`);
-    // Close the interface after printing the name
-    interFace.close();
+if (process.stdin.isTTY) {
+  process.stdin.on('data', (data) => {
+    process.stdout.write(`Your name is: ${data.toString()}`);
+    process.exit();
+  });
+} else {
+  process.stdin.on('data', (data) => {
+    process.stdout.write(`Your name is: ${data.toString()}`);
+    process.exit();
+  });
+  process.on('exit', () => {
+    process.stdout.write('This important software is now closing\n');
   });
 }
-
-// Handle process exit event to display closing message
-process.on('exit', () => {
-  console.log('This important software is now closing');
-});
-
-// Start asking for the name
-askName();
