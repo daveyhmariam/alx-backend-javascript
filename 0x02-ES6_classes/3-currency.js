@@ -9,7 +9,7 @@ export default class Currency {
   }
 
   get name() {
-    return this._name;  // This should return this._name, not this.name
+    return this._name;
   }
 
   set code(newCode) {
@@ -27,6 +27,6 @@ export default class Currency {
   }
 
   displayFullCurrency() {
-    return `${this._name} (${this._code})`;  // Use this._name and this._code to access the private properties
+    return `${this._name} (${this._code})`;
   }
 }
